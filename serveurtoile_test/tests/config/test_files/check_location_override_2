@@ -1,0 +1,15 @@
+server
+
+	server_name amarchan.42.fr;
+
+	listen 0.0.0.0:80
+
+	root /var/www/wordpress
+
+	location /
+		index ni.html na.php # Si requête sur /, renvoyer index.html ou index.php
+	
+	location / POST
+		index bugs.html bunny.php # Si requête sur /, renvoyer index.html ou index.php
+
+

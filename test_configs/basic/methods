@@ -1,0 +1,16 @@
+server
+	listen 127.0.0.1:7777
+	server_name 127.0.0.1:7777
+	directory_index true
+	root front
+#	upload_dir /upload ./front/
+	location /test_GET GET
+		root front
+	location /test_POST POST
+		root front
+	location /test_DELETE DELETE
+		root front
+	location /test_GET_POST GET POST
+		root front
+	location /test_GET_DELETE GET DELETE
+		root front

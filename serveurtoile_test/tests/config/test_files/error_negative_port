@@ -1,0 +1,60 @@
+server
+
+	listen 0.0.0.0:-1
+
+	server_name amarchan.42.fr;;;;;;;;;;;;;;;;;;;
+	max_body_size 8M
+
+	root /var/www/wordpress;
+
+	index index.php index.html index.htm;
+
+	location /
+		index index.html index.php # Si requête sur /, renvoyer index.html ou index.php
+	
+	location /toto/tata GET # Accepte uniquement les requêtes GET sur /toto/tata
+		index index.html index.php # Si requête sur /toto/tata, renvoyer index.html ou index.php
+	
+	location /upload POST # Accepte uniquement les requêtes POST sur /upload
+		max_body_size 1M # 1 Mo max par fichier uploadé
+
+	location /big_upload POST # Accepte uniquement les requêtes POST sur /big_upload
+		max_body_size 100M # 100 Mo max par fichier uploadé
+
+	location /huge_upload POST # Accepte uniquement les requêtes POST sur /huge_upload
+		max_body_size 1G # 1 Go max par fichier uploadé
+
+	location /secret POST
+		directory_index false # Si requête sur /secret, ne pas générer d'index (c'est un dossier secret)
+	
+	cgi php php-cgi # < ok
+	cgi py python3 # < ok
+
+server
+	listen	92.25.2.12:56
+
+	server_name dadam
+
+	root /gandalf;
+
+
+	max_body_size 52G
+
+	location /
+		index LED.html ZEP.php # Si requête sur /, renvoyer index.html ou index.php
+
+	location /toto/tata GET # Accepte uniquement les requêtes GET sur /toto/tata
+			index SCHWEPPES_AGRUmes.html SCHWEPPES_AGRUmes.php # Si requête sur /toto/tata, renvoyer index.html ou index.php
+			max_body_size 1G # 1 Go max par fichier uploadé
+
+server
+	listen	0.0.1.1:60
+
+	root /pipin;
+
+	server_name charlotte
+
+	max_body_size 52G
+
+	location /
+		index PINK.html FLOYD.php # Si requête sur /, renvoyer index.html ou index.php

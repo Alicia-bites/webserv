@@ -1,0 +1,12 @@
+server
+	listen 127.0.0.1:1234
+	server_name 127.0.0.1:7777
+	directory_index true
+	root /tmp/test
+#	upload_dir /upload ./front/
+server
+	listen 127.0.0.1:65536
+	server_name 127.0.0.1:7777
+	directory_index true
+	root /tmp/test
+#	upload_dir /upload ./front/

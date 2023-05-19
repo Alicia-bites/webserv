@@ -1,0 +1,5 @@
+server
+	listen 0.0.0.0:80
+	index in;dex.php ind;ex.html i;ndex.htm
+	root relative/path/to/your/frontend
+	server_name amarchan.42.fr;

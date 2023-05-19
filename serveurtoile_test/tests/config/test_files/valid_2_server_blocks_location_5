@@ -1,0 +1,15 @@
+server
+	server_name amarchan.42.fr;
+	listen 0.0.0.0:80
+	root /var/www/wordpress
+	location /toto/tata GET POST
+		index YOUPLABOOM.html FABULOSO.php 
+	index index.php index.html index.htm
+
+server
+	server_name pinkFloyd;
+	index what.php have.html we.htm done.htm
+	listen 0.94.5.20:8080
+	location /secret POST
+		directory_index false 
+	root /var/www/maggie

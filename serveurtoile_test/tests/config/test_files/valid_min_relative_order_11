@@ -1,0 +1,5 @@
+server
+	root ./relative_path_dot_preceding
+	listen 0.0.0.0:80
+	index index.php index.html index.htm
+	server_name amarchan.42.fr;

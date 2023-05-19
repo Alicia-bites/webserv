@@ -1,0 +1,12 @@
+server
+	server_name amarchan.42.fr;
+	root /var/www/wordpress
+	index index.php index.html index.htm
+	listen 0.0.0.0:80
+
+
+server
+	server_name pinkFloyd;
+	root /var/www/maggie
+	index what.php have.html we.htm done.htm
+	listen 0.94.5.20:8080

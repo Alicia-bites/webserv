@@ -1,0 +1,4 @@
+DELETE / HTTP/2
+Host: cdn.mana.rip
+user-agent: curl/7.81.0
+accept */*

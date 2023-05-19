@@ -1,0 +1,273 @@
+USE CASE 2: GET PART OF BODY NO BOUNDARY SPLITTING
+##################################################
+##################################################
+
+**************************************************
+DATA
+**************************************************
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="file2"; filename="ezgif-5-249ec2eb6f.gif"
+Content-Type: image/gif
+
+
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="file1"; filename="ezgif-5-5429c18d70.gif"
+Content-Type: image/gif
+
+
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="monChampTexte"
+
+tata
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="maCheckBox"
+
+on
+------WebKitFormBoundary7MAOYf1MYbW5Af1b--
+
+**************************************************
+BODY 1
+**************************************************
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="file2"; filename="ezgif-5-249ec2eb6f.gif"
+Content-Type: image/gif
+
+
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+**************************************************
+BODY 2
+**************************************************
+Content-Disposition: form-data; name="file1"; filename="ezgif-5-5429c18d70.gif"
+Content-Type: image/gif
+
+
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+**************************************************
+BODY 3
+**************************************************
+Content-Disposition: form-data; name="monChampTexte"
+
+tata
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+**************************************************
+BODY 4
+**************************************************
+Content-Disposition: form-data; name="maCheckBox"
+
+on
+------WebKitFormBoundary7MAOYf1MYbW5Af1b--
+**************************************************
+BODY 5
+**************************************************
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+**************************************************
+PSEUDO CODE
+**************************************************
+READ REQUEST BODY
+BUFFER APPEND READ REQUEST BODY
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="file2"; filename="ezgif-5-249ec2eb6f.gif"
+Content-Type: image/gif
+
+
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+==================================================
+END OF BUFFER
+==================================================
+FIND END BODY
+IF END BODY != NPOS
+THEN
+    HASEND = TRUE
+ELSE
+    HASEND = FALSE
+    CHECK OHTER USE CASE
+ENDIF
+
+FIND BOUNDARY START
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF START = END BODY
+THEN
+    EXIT
+ENDIF
+SHIFT BUFFER POS TO GET
+Content-Disposition: form-data; name="file2"; filename="ezgif-5-249ec2eb6f.gif"
+IF FILENAME == TRUE
+THEN
+    OPEN FILE
+    ISFILE = TRUE
+ELSE
+    ISFILE = FALSE
+ENDIF
+FIND BOUNDARY END
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF ISFILE = TRUE
+THEN
+    WRITE BUFFER, END - START
+    CLOSE FILE
+    ISFILE = FALSE
+ENDIF
+SHIFT BUFFER POS TO END
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+==================================================
+END OF BUFFER
+==================================================
+
+READ REQUEST BODY
+BUFFER APPEND READ REQUEST BODY
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="file1"; filename="ezgif-5-5429c18d70.gif"
+Content-Type: image/gif
+
+
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+==================================================
+END OF BUFFER
+==================================================
+
+FIND BOUNDARY START
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF START = END BODY
+THEN
+    EXIT
+ENDIF
+SHIFT BUFFER POS TO GET
+Content-Disposition: form-data; name="file1"; filename="ezgif-5-5429c18d70.gif"
+IF FILENAME == TRUE
+THEN
+    OPEN FILE
+    ISFILE = TRUE
+ELSE
+    ISFILE = FALSE
+ENDIF
+FIND BOUNDARY END
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF ISFILE = TRUE
+THEN
+    WRITE BUFFER, END - START
+    CLOSE FILE
+    ISFILE = FALSE
+ENDIF
+SHIFT BUFFER POS TO END
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+==================================================
+END OF BUFFER
+==================================================
+
+READ REQUEST BODY
+BUFFER APPEND READ REQUEST BODY
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="monChampTexte"
+
+tata
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+==================================================
+END OF BUFFER
+==================================================
+FIND BOUNDARY START
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF START = END BODY
+THEN
+    EXIT
+ENDIF
+SHIFT BUFFER POS TO GET
+Content-Disposition: form-data; name="monChampTexte"
+IF FILENAME == TRUE
+THEN
+    OPEN FILE
+    ISFILE = TRUE
+ELSE
+    ISFILE = FALSE
+ENDIF
+FIND BOUNDARY END
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF ISFILE = TRUE
+THEN
+    WRITE BUFFER, END - START
+    CLOSE FILE
+    ISFILE = FALSE
+ENDIF
+SHIFT BUFFER POS TO END
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+==================================================
+END OF BUFFER
+==================================================
+
+READ REQUEST BODY
+BUFFER APPEND READ REQUEST BODY
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+Content-Disposition: form-data; name="maCheckBox"
+
+on
+------WebKitFormBoundary7MAOYf1MYbW5Af1b--
+==================================================
+END OF BUFFER
+==================================================
+
+FIND BOUNDARY START
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+SHIFT BUFFER POS TO GET
+Content-Disposition: form-data; name="maCheckBox"
+IF FILENAME == TRUE
+THEN
+    OPEN FILE
+    ISFILE = TRUE
+ELSE
+    ISFILE = FALSE
+ENDIF
+FIND BOUNDARY END
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF ISFILE = TRUE
+THEN
+    WRITE BUFFER, END - START
+    CLOSE FILE
+    ISFILE = FALSE
+ENDIF
+SHIFT BUFFER POS TO END
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b--
+==================================================
+END OF BUFFER
+==================================================
+
+READ REQUEST BODY
+BUFFER APPEND READ REQUEST BODY
+==================================================
+BUFFER
+==================================================
+------WebKitFormBoundary7MAOYf1MYbW5Af1b--
+
+==================================================
+END OF BUFFER
+==================================================
+
+FIND BOUNDARY START
+------WebKitFormBoundary7MAOYf1MYbW5Af1b
+IF START = END BODY
+THEN
+    EXIT
+ENDIF

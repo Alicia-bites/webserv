@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "csm";
+    src: url("csm.ttf");
+}
+
+* {
+    font-family: "csm";
+}
+
+html {
+    background-color: #008080;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-70px);
+        transform: translateY(-70px);
+    }
+    60% {
+        -webkit-transform: translateY(-150px);
+        transform: translateY(-150px);
+    }
+}
+
+.anim-spin {
+    animation: spin 3s linear infinite;
+}
+
+.anim-bounce {
+    animation: bounce 2s infinite;
+}
+
+div.t-container {
+    width: fit-content;
+}
+
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.justify-center {
+    justify-content: center;
+}

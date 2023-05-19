@@ -1,0 +1,7 @@
+server
+	listen 127.0.0.1:7777
+	server_name 127.0.0.1:7777
+	directory_index true
+	root .
+	location /tmptmptestnothere
+		allow_upload true

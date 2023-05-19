@@ -1,0 +1,2 @@
+Error: timeout overflow. Setting timeout to default value (=2000). Please check line = 	cgi php php-cgi -1
+Error: expecting 3 arguments. Format : redirect <err_code> <old/url> <new/url>. Check line : 	redirect 300 galette_saucisse

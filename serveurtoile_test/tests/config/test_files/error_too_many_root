@@ -1,0 +1,47 @@
+server
+
+	listen 0.0.0.0:80
+
+	server_name amarchan.42.fr;;;;;;;;;;;;;;;;;;;
+	max_body_size 8M
+	<!-- max_body_size 10M            -->
+
+	root /var/www/wordpress;
+	root /var/www/wordpress;
+
+	index index.php index.html index.htm;
+
+
+	location /
+		index index.html index.php # Si requête sur /, renvoyer index.html ou index.php
+	
+	location /toto/tata GET # Accepte uniquement les requêtes GET sur /toto/tata
+			index index.html index.php # Si requête sur /toto/tata, renvoyer index.html ou index.php
+	
+	location /upload POST # Accepte uniquement les requêtes POST sur /upload
+		max_body_size 1M # 1 Mo max par fichier uploadé
+
+	location /big_upload POST # Accepte uniquement les requêtes POST sur /big_upload
+		max_body_size 100M # 100 Mo max par fichier uploadé
+
+	location /huge_upload POST # Accepte uniquement les requêtes POST sur /huge_upload
+		max_body_size 1G # 1 Go max par fichier uploadé
+
+	location /secret POST
+		directory_index false # Si requête sur /secret, ne pas générer d'index (c'est un dossier secret)
+
+server
+	listen	92.25.2.12:56
+
+	server_name dadam
+
+	max_body_size 52G
+
+	root /var/yaourt
+
+	location /
+		index index.html index.php # Si requête sur /, renvoyer index.html ou index.php
+	
+	location /toto/tata GET # Accepte uniquement les requêtes GET sur /toto/tata
+			index index.html index.php # Si requête sur /toto/tata, renvoyer index.html ou index.php
+

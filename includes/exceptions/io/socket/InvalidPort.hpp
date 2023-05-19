@@ -1,0 +1,18 @@
+#pragma once
+#include <exception>
+
+namespace webserv {
+    namespace exceptions {
+        namespace io {
+            /**
+             * @brief Exception thrown when a port is invalid (not in range 1-65535)
+            */
+            class SocketInvalidPort : public std::exception {
+                public:
+                    virtual const char* what() const throw() {
+                        return "Failed to create socket: Invalid port";
+                    }
+            };
+        }
+    }
+}

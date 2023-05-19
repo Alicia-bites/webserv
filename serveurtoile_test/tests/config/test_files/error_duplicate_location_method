@@ -1,0 +1,14 @@
+server
+
+	listen 0.0.0.0:80
+
+	server_name amarchan.42.fr;;;;;;;;;;;;;;;;;;;
+	max_body_size 8M
+
+	root /var/www/wordpress;
+
+	index index.php index.html index.htm;
+
+	location / GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET GET
+		index index.html index.php # Si requête sur /, renvoyer index.html ou index.php
+	

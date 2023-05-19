@@ -1,0 +1,13 @@
+server
+	listen 127.0.0.1:7777
+	server_name ABCEDOJHNRiuolhdfsiughyihugh # requests to http://127.0.0.1:7777 should land here
+	directory_index true
+	root /tmp
+#	upload_dir /upload .
+
+server
+	listen 127.0.0.1:7777
+	server_name localhost:7777 # requests to http://localhost:7777 should go here
+	directory_index true
+	root front
+#	upload_dir /upload .

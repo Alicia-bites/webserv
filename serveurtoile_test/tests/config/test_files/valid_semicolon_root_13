@@ -1,0 +1,5 @@
+server
+	index index.php index.html index.htm
+	server_name amarchan.42.fr;
+	listen 0.0.0.0:80
+	root ./semi;colon;in;path/

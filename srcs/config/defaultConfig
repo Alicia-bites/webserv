@@ -1,0 +1,45 @@
+server
+
+	listen 0.0.0.0:80
+
+	server_name localhost:8080
+	max_body_size 8M
+
+	directory_index true
+
+	root /mnt/nfs/homes/amarchan/Documents/serveurtoile/front
+
+	# index index.php index.html index.htm
+
+	location /
+		index index.html index.php # Si requête sur /, renvoyer index.html ou index.php
+	
+	location /toto/tata GET # Accepte uniquement les requêtes GET sur /toto/tata
+		root /mnt/nfs/homes/amarchan/Documents/serveurtoile/front/aliciaRoot # va chercher funky.html index.php dans /aliciaRoot 
+		index funky.html index.php # Si requête sur /toto/tata, renvoyer index.html ou index.php
+	
+	location /assets GET
+		directory_index false
+	
+	location /metagraboliser GET
+		index index.html index.php
+
+	location /upload DELETE # Accepte uniquement les requêtes DELETE sur /upload
+		max_body_size 1M # 1 Mo max par fichier uploadé
+
+	location /big_upload GET # Accepte uniquement les requêtes POST sur /big_upload
+		max_body_size 100M # 100 Mo max par fichier uploadé
+
+	location /huge_upload POST # Accepte uniquement les requêtes POST sur /huge_upload
+		max_body_size 1K # 1 Go max par fichier uploadé
+
+	location /secret POST
+		directory_index false # Si requête sur /secret, ne pas générer d'index (c'est un dossier secret)
+	
+	cgi php php-cgi # < ok
+	cgi py python3 # < ok
+
+	redirect 302 /pop /assets
+	redirect 302 /yop /assets
+
+	# error_page 404 https://http.cat/403

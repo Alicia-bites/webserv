@@ -1,0 +1,6 @@
+server
+	listen 127.0.0.1:0
+	server_name 127.0.0.1:7777
+	directory_index true
+	root /tmp/test
+#	upload_dir /upload ./front/

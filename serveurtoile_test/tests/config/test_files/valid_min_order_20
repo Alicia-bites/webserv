@@ -1,0 +1,5 @@
+server
+	listen 0.0.0.0:80
+	root /var/www/wordpress
+	server_name amarchan.42.fr;
+	index index.php index.html index.htm
