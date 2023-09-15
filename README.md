@@ -1,7 +1,7 @@
 # Webserver
 
 
-## HOw to use
+## How to use
 - in terminal, just type in 'make'
 - then, './webserv' + config file of your choice, you can use 'valid_legit.txt' for testing 
 
